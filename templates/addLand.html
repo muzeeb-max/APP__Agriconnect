@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New Land</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #f5fff5;
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background: #fff;
+      padding: 30px 40px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      width: 350px;
+      text-align: center;
+    }
+    h2 { color: #2a7f26; }
+    label { display: block; text-align: left; margin: 10px 0 5px; font-weight: 500; }
+    input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .btn {
+      background: #00b853;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn:hover { background: #009846; }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New Land</h2>
+    <form id="landForm">
+      <label>Land Location</label>
+      <input type="text"  id="location" required minlength="0">
+
+      <label>Land Area (in acres)</label>
+      <input type="number" id="area" min="1" step="0.1" required>
+
+
+      <button class="btn" type="submit">Add Land</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("landForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const location = document.getElementById("location").value;
+      const area = document.getElementById("area").value;
+
+      const lands = JSON.parse(localStorage.getItem("lands")) || [];
+      lands.push({ location, area });
+      localStorage.setItem("lands", JSON.stringify(lands));
+
+      alert("✅ Land added successfully!");
+      window.location.href = "myLands";
+    });
+  </script>
+</body>
+</html>

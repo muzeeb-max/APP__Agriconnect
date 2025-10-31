@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Success Page</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #c6f6d5, #9ae6b4);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 500px;
+      width: 90%;
+      animation: fadeIn 1s ease;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #16a34a;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #374151;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+
+    span {
+      color: #15803d;
+      font-weight: 600;
+    }
+
+    #goHomeBtn {
+      background-color: #16a34a;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #goHomeBtn:hover {
+      background-color: #15803d;
+      transform: scale(1.05);
+    }
+
+    /* Loader Animation */
+    .loader {
+      border: 5px solid #e5e7eb;
+      border-top: 5px solid #16a34a;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto 0;
+    }
+
+    .loading-text {
+      font-size: 1rem;
+      color: #374151;
+      margin-top: 10px;
+      animation: fadeBlink 2s infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>✅ Registration Successful!</h1>
+    <p>
+      Welcome, <span>{{ name }}</span>!  
+      Your account has been created successfully.
+    </p>
+
+    <!-- Loading animation -->
+    <div class="loader"></div>
+    <p class="loading-text">Preparing your dashboard...</p>
+
+    
+  </div>
+
+  <!-- Keep your JS -->
+  
+</body>
+</html>

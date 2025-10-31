@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Request Sent</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #f5fff5;
+      text-align: center;
+      padding-top: 80px;
+    }
+    .box {
+      background: #e9ffe9;
+      padding: 30px;
+      border-radius: 15px;
+      display: inline-block;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 { color: #2a7f26; }
+    a {
+      text-decoration: none;
+      color: white;
+      background: #00b853;
+      padding: 10px 25px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>✅ Request Sent!</h2>
+    <p><strong>{{ vendor }}</strong> successfully sent a connection request to <strong>{{ farmer }}</strong>.</p>
+    <a href="{{ url_for('connectFarmers') }}">Back</a>
+  </div>
+</body>
+</html>

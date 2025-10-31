@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Connect with Farmers</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: #f7fff7;
+            text-align: center;
+            padding: 40px;
+        }
+        .farmer-card {
+            background: #e8ffe8;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;
+            margin: 10px auto;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            background: #00b853;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Available Farmers</h2>
+    {% for farmer in farmers %}
+        <div class="farmer-card">
+            <h3>{{ farmer }}</h3>
+            <form action="{{ url_for('sendRequest') }}" method="POST">
+                <input type="hidden" name="vendor" value="{{ name }}">
+                <input type="hidden" name="farmer" value="{{ farmer }}">
+                <button type="submit">Send Request</button>
+            </form>
+        </div>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agriconnect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+<body style="
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top left, #111, #000);
+  margin: 0;
+  color: #fff;
+">
+
+  <!-- Navbar -->
+  <nav style="
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: rgba(25,25,30,0.9);
+    border-bottom: 1px solid rgba(155,107,255,0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  ">
+    <div style="display: flex; align-items: center;">
+      <img src='https://picsum.photos/40?random=1' alt='logo' style="border-radius:50%; margin-right:10px;">
+      <h1 style="font-size:22px; font-weight:600; color:#b99cff;">Agriconnect</h1>
+    </div>
+    <div>
+      <a href="#about" style="margin-right:20px; color:#ccc; text-decoration:none; transition:0.3s;" 
+         onmouseover="this.style.color='#b88fff'" onmouseout="this.style.color='#ccc'">About</a>
+      <a href="#login" style="color:#ccc; text-decoration:none; transition:0.3s;"
+         onmouseover="this.style.color='#b88fff'" onmouseout="this.style.color='#ccc'">Login</a>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    background: linear-gradient(160deg, #1a1a1a, #0b0b0b);
+    text-align: center;
+  ">
+    <h2 style="font-size: 36px; font-weight: 600; color:#b99cff; margin-bottom:15px;">About Agriconnect</h2>
+    <p style="max-width:700px; font-size:16px; color:#bbb; line-height:1.7;">
+      Agriconnect is your smart platform for farmers and vendors to connect, collaborate, 
+      and grow together. Whether you're sharing resources, selling produce, or finding 
+      trusted buyers — Agriconnect makes agriculture digital, simple, and powerful.
+    </p>
+    <button onclick="window.location.href='about';" style="
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 16px;
+      color: #fff;
+      background: linear-gradient(90deg, #9b6bff, #7b4aff);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    " onmouseover="this.style.background='linear-gradient(90deg,#b88fff,#9b6bff)'; this.style.boxShadow='0 0 15px rgba(155,107,255,0.5)'"
+       onmouseout="this.style.background='linear-gradient(90deg,#9b6bff,#7b4aff)'; this.style.boxShadow='none'">
+      Learn More
+    </button>
+  </section>
+
+  <!-- Login Section -->
+  <section id="login" style="
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:100px 20px;
+    background: radial-gradient(circle at top right, #0c0c0c, #000);
+  ">
+    <div style="
+      width: 380px;
+      background: rgba(25, 25, 30, 0.9);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(140, 90, 255, 0.3);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(100, 100, 255, 0.2);
+    ">
+      <h2 style="
+        text-align: center;
+        margin-bottom: 5px;
+        font-weight: 600;
+        font-size: 28px;
+        color: #b99cff;
+      ">Login to Agriconnect</h2>
+
+      {% if message %}
+      <p id='msg' style="text-align:center; color:#ff6b6b; font-size:14px; margin-bottom:10px;">
+          {{ message }}
+      </p>
+      {% endif %}
+
+      <script>
+          setTimeout(() => {
+            const msg = document.getElementById('msg');
+            if (msg) msg.style.display = 'none';
+          }, 3000);
+      </script>
+
+      <p style="
+        text-align: center;
+        color: #aaa;
+        font-size: 14px;
+        margin-bottom: 25px;
+      ">Connect, Create & Grow Together</p>
+
+      <form method="POST" action="{{ url_for('login') }}" style="display:flex; flex-direction:column;">
+        <div style="position: relative; margin-bottom: 25px;">
+          <input type="text" name="username" required
+            style='width:100%;padding:12px 10px;background:transparent;border:none;border-bottom:2px solid #444;color:#fff;font-size:16px;outline:none;transition:0.3s;'
+            onfocus="this.style.borderColor='#9b6bff'; this.nextElementSibling.style.top='-10px'; this.nextElementSibling.style.fontSize='12px'; this.nextElementSibling.style.color='#b88fff';"
+            onblur="if(!this.value){this.style.borderColor='#444'; this.nextElementSibling.style.top='12px'; this.nextElementSibling.style.fontSize='16px'; this.nextElementSibling.style.color='#777';}">
+          <label style='position:absolute;top:12px;left:10px;color:#777;pointer-events:none;transition:0.3s;'>Username</label>
+        </div>
+
+        <div style="position: relative; margin-bottom: 25px;">
+          <input type="email" name="email" required
+            style='width:100%;padding:12px 10px;background:transparent;border:none;border-bottom:2px solid #444;color:#fff;font-size:16px;outline:none;transition:0.3s;'
+            onfocus="this.style.borderColor='#9b6bff'; this.nextElementSibling.style.top='-10px'; this.nextElementSibling.style.fontSize='12px'; this.nextElementSibling.style.color='#b88fff';"
+            onblur="if(!this.value){this.style.borderColor='#444'; this.nextElementSibling.style.top='12px'; this.nextElementSibling.style.fontSize='16px'; this.nextElementSibling.style.color='#777';}">
+          <label style='position:absolute;top:12px;left:10px;color:#777;pointer-events:none;transition:0.3s;'>Email</label>
+        </div>
+
+        <div style="position: relative; margin-bottom: 25px;">
+          <input type="password" name="password" required
+            style='width:100%;padding:12px 10px;background:transparent;border:none;border-bottom:2px solid #444;color:#fff;font-size:16px;outline:none;transition:0.3s;'
+            onfocus="this.style.borderColor='#9b6bff'; this.nextElementSibling.style.top='-10px'; this.nextElementSibling.style.fontSize='12px'; this.nextElementSibling.style.color='#b88fff';"
+            onblur="if(!this.value){this.style.borderColor='#444'; this.nextElementSibling.style.top='12px'; this.nextElementSibling.style.fontSize='16px'; this.nextElementSibling.style.color='#777';}">
+          <label style='position:absolute;top:12px;left:10px;color:#777;pointer-events:none;transition:0.3s;'>Password</label>
+        </div>
+
+        <!-- 👇 Added Role Selection (Farmer/Vendor) -->
+
+        <!-- 👆 End Role Selection -->
+
+        <div style="font-size: 13px; margin-bottom: 20px;">
+          <label>
+            <input type="checkbox" required style="accent-color:#9b6bff; margin-right:6px;">
+            I agree to the <a href="#" style="color:#b88fff;text-decoration:none;">terms</a>
+          </label>
+        </div>
+
+        <button type="submit" style="
+          width: 100%;
+          padding: 12px;
+          background: linear-gradient(90deg, #9b6bff, #7b4aff);
+          border: none;
+          border-radius: 8px;
+          color: #fff;
+          font-weight: 600;
+          font-size: 16px;
+          cursor: pointer;
+          transition: 0.3s;"
+          onmouseover="this.style.background='linear-gradient(90deg,#b88fff,#9b6bff)'; this.style.boxShadow='0 0 15px rgba(155,107,255,0.5)'"
+          onmouseout="this.style.background='linear-gradient(90deg,#9b6bff,#7b4aff)'; this.style.boxShadow='none'">
+          Sign In
+        </button>
+
+        <p style="text-align:center;margin-top:20px;font-size:14px;color:#aaa;">
+          New to Agriconnect? <a href="register" style="color:#b88fff;text-decoration:none;">Register</a>
+        </p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="
+    text-align:center;
+    padding:20px;
+    border-top:1px solid rgba(155,107,255,0.2);
+    background:#0b0b0b;
+    color:#777;
+    font-size:13px;
+  ">
+    © 2025 Agriconnect. All Rights Reserved.
+  </footer>
+
+</body>
+</html>

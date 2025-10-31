@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Are you a Farmer or Vendor?</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            display: grid;
+            place-items: center;
+            min-height: 90vh;
+            /* --- This is the change --- */
+            background-color: #e8f5e9; /* A light, pleasant green */
+            /* --- End of change --- */
+            margin: 0;
+        }
+        .selection-box {
+            background: #ffffff;
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        fieldset {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+        legend {
+            padding: 0 0.5rem;
+            font-weight: 600;
+            color: #555;
+        }
+        .choice {
+            display: block;
+            margin: 1rem 0;
+            text-align: left;
+            font-size: 1.1rem;
+        }
+        label {
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+        input[type="radio"] {
+            transform: scale(1.2);
+            margin-right: 0.25rem;
+        }
+        button {
+            margin-top: 1.5rem;
+            padding: 0.8rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            background-color: #28a745; /* Changed button to a matching green */
+            color: white;
+            border: none;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="selection-box">
+        <h2>Welcome!,<span> {{name}} </span> </h2>
+        <p>Please select your role to continue.</p>
+        
+<form id="regform" action="/submit-role" method="POST">
+    <input type="hidden" name="name" value="{{ name }}">
+    
+    <fieldset>
+        <legend>What is your role?</legend>
+        <div class="choice">
+            <input type="radio" id="farmer" name="user_role" value="farmer" required>
+            <label for="farmer">Farmer</label>
+        </div>
+        <div class="choice">
+            <input type="radio" id="vendor" name="user_role" value="vendor">
+            <label for="vendor">Vendor</label>
+        </div>
+    </fieldset>
+
+    <button type="submit" id="submit">Submit</button>
+</form>
+
+    </div>
+    <script>
+        const userName = "{{ name }}";
+    </script>
+    <script src="{{ url_for('static', filename='sucjava.js') }}"></script>
+
+
+</body>
+</html>
