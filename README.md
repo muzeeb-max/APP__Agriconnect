@@ -1,6 +1,6 @@
 # 🌾 AgriConnect – Smart Farmer Connection Platform
 
-AgriConnect is a Flask-based web application that helps **farmers connect with each other**, **manage their lands**, and **send requests for collaboration or trade**.  
+AgriConnect is a Flask-based web application that helps **farmers connect with each other**, **manage their lands**, and **send requests for collaboration or trade with vendors**.  
 It’s built with **Flask, SQLite, HTML, CSS, and JavaScript**.
 
 ---
