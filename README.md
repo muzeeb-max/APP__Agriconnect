@@ -106,6 +106,6 @@ AgriConnect/
 ---
 
 ## 🧑‍💻 Author
-**Muzeeb Rahman Shaik (KOJJA)**  
+**Muzeeb Rahman Shaik , Yuvraj Nagaboine**  
 Computer Science Engineer @ VIT-AP  
 Passionate about Full Stack Development 🚀
